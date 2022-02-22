@@ -17,6 +17,14 @@ class MainActivity : AppCompatActivity() {
 
         val countUpButton: Button = findViewById(R.id.count_up_button)
         countUpButton.setOnClickListener { countUp() }
+
+        val resetButton: Button = findViewById(R.id.reset_button)
+        resetButton.setOnClickListener { reset() }
+    }
+
+    private fun reset() {
+        val resetText: TextView = findViewById(R.id.result_text)
+        resetText.text = "0"
     }
 
     private fun countUp() {
