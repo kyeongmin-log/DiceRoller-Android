@@ -72,3 +72,16 @@ CPU 2.83GHz
 
 1. [https://namu.wiki/w/XML](https://namu.wiki/w/XML) : 위 내용
 2. [https://support.microsoft.com/ko-kr/office/초보자를-위한-xml-설명-a87d234d-4c2e-4409-9cbc-45e4eb857d44](https://support.microsoft.com/ko-kr/office/%EC%B4%88%EB%B3%B4%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-xml-%EC%84%A4%EB%AA%85-a87d234d-4c2e-4409-9cbc-45e4eb857d44) : ms에 나와있는 xml 설명
+
+## **Image resources**
+
+# 목표
+
+-  강의 : https://developer.android.com/codelabs/kotlin-android-training-images-compat#0
+-  주사위의 눈을 숫자가 아닌 이미지로 변경한다.
+
+# 결과
+
+[Virtual Device] - Nexus 5X (API LEVEL 30)
+
+![Image_resources_result.gif](readme_files/Image_resources_result.gif)

@@ -2,18 +2,21 @@ package com.example.diceroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var diceImage : ImageView
+    private var diceNumber = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener { rollDice() }
+        diceImage = findViewById(R.id.dice_image)
 
         val countUpButton: Button = findViewById(R.id.count_up_button)
         countUpButton.setOnClickListener { countUp() }
@@ -23,28 +26,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun reset() {
-        val resetText: TextView = findViewById(R.id.result_text)
-        resetText.text = "0"
+        diceImage.setImageResource(R.drawable.empty_dice)
+        diceNumber = 0
     }
 
     private fun countUp() {
-        val resultText: TextView = findViewById(R.id.result_text)
-        val resultString = resultText.text.toString()
-//        Log.i("resultString", resultString)
-        if(resultString == "Click Roll Button!"){
-            resultText.text = "1"
-        } else {
-            if(resultString != "6"){
-                resultText.text = (resultString.toInt() + 1).toString()
+        if(diceNumber != 6){
+            val drawableResource = when (++diceNumber) {
+                1 -> R.drawable.dice_1
+                2 -> R.drawable.dice_2
+                3 -> R.drawable.dice_3
+                4 -> R.drawable.dice_4
+                5 -> R.drawable.dice_5
+                else -> R.drawable.dice_6
             }
+
+            diceImage.setImageResource(drawableResource)
         }
     }
 
     private fun rollDice(){
-//        Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
-        val randomInt = (1..6).random()
+        diceNumber = (1..6).random()
 
-        val resultText: TextView = findViewById(R.id.result_text)
-        resultText.text = randomInt.toString()
+        val drawableResource = when (diceNumber) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+
+        diceImage.setImageResource(drawableResource)
     }
 }
