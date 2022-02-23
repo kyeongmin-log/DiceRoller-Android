@@ -8,7 +8,7 @@ import android.widget.ImageView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var diceImage : ImageView
-    private var diceNumber = 0
+    private lateinit var diceImageSecond : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,9 +17,7 @@ class MainActivity : AppCompatActivity() {
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener { rollDice() }
         diceImage = findViewById(R.id.dice_image)
-
-        val countUpButton: Button = findViewById(R.id.count_up_button)
-        countUpButton.setOnClickListener { countUp() }
+        diceImageSecond = findViewById(R.id.dice_image_second)
 
         val resetButton: Button = findViewById(R.id.reset_button)
         resetButton.setOnClickListener { reset() }
@@ -27,28 +25,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun reset() {
         diceImage.setImageResource(R.drawable.empty_dice)
-        diceNumber = 0
+        diceImageSecond.setImageResource(R.drawable.empty_dice)
     }
 
-    private fun countUp() {
-        if(diceNumber != 6){
-            val drawableResource = when (++diceNumber) {
-                1 -> R.drawable.dice_1
-                2 -> R.drawable.dice_2
-                3 -> R.drawable.dice_3
-                4 -> R.drawable.dice_4
-                5 -> R.drawable.dice_5
-                else -> R.drawable.dice_6
-            }
-
-            diceImage.setImageResource(drawableResource)
-        }
-    }
-
-    private fun rollDice(){
-        diceNumber = (1..6).random()
-
-        val drawableResource = when (diceNumber) {
+    private fun getRandomDiceImage() : Int {
+        val drawableResource = when ((1..6).random()) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
             3 -> R.drawable.dice_3
@@ -56,7 +37,15 @@ class MainActivity : AppCompatActivity() {
             5 -> R.drawable.dice_5
             else -> R.drawable.dice_6
         }
+        return drawableResource
+    }
 
-        diceImage.setImageResource(drawableResource)
+    private fun rollDice(){
+        var res = getRandomDiceImage()
+
+        diceImage.setImageResource(res)
+
+        res = getRandomDiceImage()
+        diceImageSecond.setImageResource(res)
     }
 }

@@ -85,3 +85,25 @@ CPU 2.83GHz
 [Virtual Device] - Nexus 5X (API LEVEL 30)
 
 ![Image_resources_result.gif](readme_files/Image_resources_result.gif)
+
+# 코딩 챌린지
+
+-  주사위 1개 추가. 주사위는 각각 독립된 값을 가짐
+-  reset 버튼 클릭 시 다시 빈 이미지로 설정
+
+[Virtual Device] - Nexus 5X (API LEVEL 30)
+
+![image_coding_challenge_result.gif](readme_files/image_coding_challenge_result.gif)
+
+-  Count Up 기능 보류
+
+```
+Count Up 기능을 구현하는 방법은 작성해놓았지만 주사위의 눈을 독립적으로 변경할려면 변경되는 부분이 많으며 현재 과정에서 Count Up 기능을 추가하라는 말이 없었기에 기능을 보류한다.
+
+[구현 과정]
+
+1. Ramdom 값을 Array List 에 저장
+2. 해당 Array List 를 loop 하며 6 인지 비교. index 는 주사위를 가르킨다.
+3. 6 이 아니라면 해당 index 값을 1 올려서 저장
+4. 올린 값에 해당하는 이미지를 가져와서
+```
